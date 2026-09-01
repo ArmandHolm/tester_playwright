@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArmandHolm/tester_playwright.git"
@@ -17,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ArmandHolm/tester_playwright/issues"
   },
-  "homepage": "https://github.com/ArmandHolm/tester_playwright#readme"
+  "homepage": "https://github.com/ArmandHolm/tester_playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.0"
+  }
 }
