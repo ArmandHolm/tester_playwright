@@ -22,7 +22,7 @@ jobs:
       env:
         BASE_URL: ${{ vars.BASE_URL }}
         API_BASE_URL: ${{ vars.API_BASE_URL }}
-    - uses: actions/upload-artifact@v5
+    - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
