@@ -1,9 +1,9 @@
 import { APIRequestContext, request } from '@playwright/test';
-import config, { getBaseUrl } from '../config';
+import config, { getApiBaseUrl } from '../config';
 
 export async function newApiContext(): Promise<APIRequestContext> {
     return request.newContext({
-        baseURL: getBaseUrl(),
+        baseURL: getApiBaseUrl(),
         extraHTTPHeaders: {
             accept: 'application/json',
         },
