@@ -1,17 +1,24 @@
-# SDET Framework Master Architecture
+## SDET Framework Master Architecture
 
-**Context:** 
-We are building a comprehensive QA automation framework using **Playwright** and **TypeScript** to showcase my SDET capabilities. 
-**Target Application:** Automation in Testing (Restful Booker Platform). 
-* Base URL: `https://automationintesting.online/`
+## Purpose
+provide clear architecture and conventions for this Playwright + TypeScript automation framework (intended as a public portfolio showcasing Senior SDET practices).
 
-## Framework Modules (Skills)
-To conserve context tokens and ensure strict coding standards, detailed instructions are split by domain. When asked to perform a task, refer to the corresponding skill file:
+Target application: https://automationintesting.online/
 
-* **API Testing:** Read `docs/skills/api-testing.md`
-* **UI Testing:** Read `docs/skills/ui-testing.md`
-* **Performance/A11y:** Read `docs/skills/perf-a11y.md`
+## Overview
+- Central config: `src/config.ts` exposes `baseUrl`, `apiBaseUrl`, `uiBaseUrl`, `perfBaseUrl` and common runtime settings.
+- API clients: `src/api-clients/*` encapsulate HTTP interactions and return typed responses. Use `src/api-clients/BaseApiClient.ts` for common behavior.
+- Fixtures: `src/fixtures/*` provide shared setup. Import `test` from fixture modules (e.g. `src/fixtures/apiFixtures.ts`) instead of `@playwright/test` directly to get the correct per-type setup.
+- Types: keep a single source of truth under `src/types/` (request/response). All responses and payloads must have TypeScript interfaces.
+- Pages: UI tests must use `src/pages/*` Page Object classes. Keep locators and page logic encapsulated.
 
-## General Rules
-* Use TypeScript strictly (no `any`).
-* Commit frequently using Conventional Commits (`feat:`, `test:`, `refactor:`).
+##  Where to look
+- API guidance: `docs/skills/api-testing.md`
+- UI guidance: `docs/skills/ui-testing.md`
+- Perf & Accessibility guidance: `docs/skills/perf-a11y.md`
+
+
+## General Rules & Quick reminders
+- Strict TypeScript: avoid `any`. Define request/response interfaces for every API interaction.
+- Use Playwright fixtures (not ad-hoc global setup) to ensure isolation and predictable lifecycle.
+- Add and document environment variables in `.env` for local development; CI should set secrets/vars explicitly.
