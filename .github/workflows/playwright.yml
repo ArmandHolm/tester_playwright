@@ -19,6 +19,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+      env:
+        BASE_URL: ${{ vars.BASE_URL }}
+        API_BASE_URL: ${{ vars.API_BASE_URL }}
     - uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
       with:
