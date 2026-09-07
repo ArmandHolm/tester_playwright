@@ -1,7 +1,7 @@
 # Skill: Accessibility (a11y) & Performance Testing
 
 ## Objective
-Implement non-functional testing layers to validate web accessibility compliance and baseline frontend performance for the Conduit application.
+Implement non-functional testing layers to validate web accessibility compliance and baseline frontend performance.
 
 ## Accessibility Rules (A11y)
 * **Tooling:** Utilize `@axe-core/playwright`.

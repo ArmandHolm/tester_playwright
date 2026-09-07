@@ -1,17 +1,13 @@
 # Skill: API Testing & Integration
 
 ## Objective
-Build robust, scalable API controllers and integration tests for the Conduit API (`https://api.realworld.io/api`).
+Build robust, scalable API controllers and integration tests for the Restful Booker Platform API (`https://automationintesting.online/`).
 
 ## Architecture Rules
-* **API Clients (`src/api-clients/`):** All API calls must be encapsulated in class-based controllers (e.g., `AuthApiClient.ts`, `ArticleApiClient.ts`). These classes must accept a Playwright `APIRequestContext` in their constructor.
-* **Types (`src/types/api.d.ts`):** Define strict TypeScript interfaces for all request payloads and responses.
-* **Tests (`src/tests/api/`):** API specs must focus on HTTP status codes, schema validation, and response time assertions.
+* **API Clients (`src/api-clients/`):** All API calls must be encapsulated in class-based controllers. Create `RoomApiClient.ts` and `BrandingApiClient.ts`. These must accept a Playwright `APIRequestContext`.
+* **Types (`src/types/api.d.ts`):** Define strict TypeScript interfaces for request payloads and responses (e.g., `RoomResponse`, `BrandingResponse`).
+* **Tests (`src/tests/api/`):** API specs must focus on HTTP status codes, schema validation, and response times.
 
-## State Management Standard
-* For authentication, the `AuthApiClient` must handle generating JWT tokens via the `/users/login` endpoint.
-* Tests requiring authentication must pass this generated token in the `Authorization: Token <jwt>` header.
-
-## Playwright Specifics
-* Use `await request.post()`, `await request.get()`.
-* Assertions should look like: `expect(response.status()).toBe(200);`
+## Endpoint Standards
+* Branding: GET `/api/branding` returns hotel contact info, map coordinates, and descriptions.
+* Rooms: GET `/api/room` returns a list of available rooms, prices, and features.
